@@ -40,7 +40,7 @@ class ControladorCategoria extends Controller
         $cat = new Categoria();
         $cat->nome = $request->input('nomeCategoria');
         $cat->save();
-        return redirect('/categorias');
+        return redirect(route("categorias.index"));
     }
 
     /**
@@ -62,9 +62,16 @@ class ControladorCategoria extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        $cat = Categoria::find($id);
+        if (isset($cat)) {
+            return view('editacategoria', compact('cat'));
+        }
+        return (redirect(route('categorias.index')));
+        // $cat->nome = $request->input('nomeCategoria');
+        // $cat->update();
+        // return redirect(route("categorias.index"));
 
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -74,7 +81,11 @@ class ControladorCategoria extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cat = Categoria::find($id);
+        $cat->nome = $request->input('nomeCategoria'); //'nomeCategoria' == html input name
+        $cat->save();
+        return redirect(route("categorias.index"));
+
     }
 
     /**
@@ -90,6 +101,6 @@ class ControladorCategoria extends Controller
             $cat->delete();
         }
 
-        return redirect('/categorias');
+        return redirect(route('categorias.index'));
     }
 }

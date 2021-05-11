@@ -29,6 +29,7 @@ Route::get('/categorias', function (){
     return view('categorias');
 })->name('categorias');
 
+
 Route::resource('/produtos', '\App\Http\Controllers\ControladorProduto'::class);
 
 Route::resource('/categorias', '\App\Http\Controllers\ControladorCategoria'::class);

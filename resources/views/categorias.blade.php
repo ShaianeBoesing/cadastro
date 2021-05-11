@@ -20,11 +20,15 @@
                         <td>{{$cat->id}}</td>
                         <td>{{$cat->nome}}</td>
                         <td>
-                            <a href="/categorias/{{$cat->id}}/edit" class="btn btn-primary">Editar</a>
+                            <a href="{{route('categorias.edit', $cat->id)}}" class="btn btn-primary">Editar</a>
                         </td>
-                        <td>
-                            <a href="#" class="btn btn-danger">Excluir</a>
-                        </td>
+                            <form action="{{route('categorias.destroy',$cat->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <td>
+                                <input type="submit" class="btn btn-danger" value="Excluir">
+                            </td>
+                        </form>
                     </tr>
                 @endforeach
 
@@ -33,7 +37,8 @@
             @endif
         </div>
         <div class="card-footer">
-            <a href="/categorias/create" class="btn btn-sm btn-primary" role="button">Nova Categoria</a></div>
+            <a href="{{route('categorias.create')}}" class="btn btn-sm btn-primary" role="button">Nova Categoria</a>
+        </div>
     </div>
 
 

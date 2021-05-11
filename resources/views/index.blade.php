@@ -7,12 +7,12 @@
                 <div class="card border border-primary">
                     <div class="card-body">
                         <h5 class="card-title">
-                            Cadastro de departamentos
+                            Cadastro de Categorias
                         </h5>
                         <p class="card-text">
-                            Aqui você cadastra os seus departamentos.
+                            Aqui você cadastra as suas categorias.
                         </p>
-                        <a href="{{route('produtos')}}" class="btn btn-primary"> Cadastre seus produtos</a>
+                        <a href="{{route('categorias.index')}}" class="btn btn-primary"> Cadastre suas categorias</a>
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@
                         <p class="card-text">
                             Aqui você cadastra todos os seus produtos. Mas lembre-se de cadastrar antes as categorias
                         </p>
-                        <a href="{{route('categorias')}}" class="btn btn-primary"> Cadastre seus produtos</a>
+                        <a href="{{route('produtos.index')}}" class="btn btn-primary"> Cadastre seus produtos</a>
                     </div>
                 </div>
             </div>

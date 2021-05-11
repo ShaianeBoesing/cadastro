@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProdutosTable extends Migration
+class AddSoftdeletesFieldTableProdutos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateProdutosTable extends Migration
      */
     public function up()
     {
-        Schema::create('produtos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->integer('estoque');
-            $table->float('preco');
-            $table->timestamps();
+        Schema::table('produtos', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateProdutosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produtos');
+        Schema::table('produtos', function (Blueprint $table) {
+            $table->dropColumn('softDeletes');
+        });
     }
 }
