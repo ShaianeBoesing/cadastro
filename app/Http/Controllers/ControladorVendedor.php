@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-        use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
-        use App\Models\Categoria;
-
-class ControladorCategoria extends Controller
+class ControladorVendedor extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class ControladorCategoria extends Controller
      */
     public function index()
     {
-        $cats = Categoria::all();
-        return view('categorias', compact('cats'));
+        //
     }
 
     /**
@@ -26,7 +23,7 @@ class ControladorCategoria extends Controller
      */
     public function create()
     {
-        return view('novacategoria');
+        //
     }
 
     /**
@@ -37,11 +34,7 @@ class ControladorCategoria extends Controller
      */
     public function store(Request $request)
     {
-
-        $cat = new Categoria();
-        $cat->nome = $request->input('nomeCategoria');
-        $cat->save();
-        return redirect(route("categorias.index"));
+        //
     }
 
     /**
@@ -63,16 +56,9 @@ class ControladorCategoria extends Controller
      */
     public function edit($id)
     {
-        $cat = Categoria::find($id);
-        if (isset($cat)) {
-            return view('editacategoria', compact('cat'));
-        }
-        return (redirect(route('categorias.index')));
-        // $cat->nome = $request->input('nomeCategoria');
-        // $cat->update();
-        // return redirect(route("categorias.index"));
-
+        //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -82,11 +68,7 @@ class ControladorCategoria extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cat = Categoria::find($id);
-        $cat->nome = $request->input('nomeCategoria'); //'nomeCategoria' == html input name
-        $cat->save();
-        return redirect(route("categorias.index"));
-
+        //
     }
 
     /**
@@ -97,11 +79,6 @@ class ControladorCategoria extends Controller
      */
     public function destroy($id)
     {
-        $cat = Categoria::find($id);
-        if (isset($cat)){
-            $cat->delete();
-        }
-
-        return redirect(route('categorias.index'));
+        //
     }
 }

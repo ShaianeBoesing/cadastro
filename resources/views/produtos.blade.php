@@ -5,7 +5,7 @@
             <h5 class="card-title">Cadastro de Produtos</h5>
 
             @if(count($cats)>0)
-                <table class="table table-ordered table hover">
+                <table class="table table-ordered table-hover">
                     <thead>
                     <tr>
                         <th>código</th>

@@ -29,7 +29,13 @@ Route::get('/categorias', function (){
     return view('categorias');
 })->name('categorias');
 
+Route::get('/vendedores', function (){
+    return view('vendedores');
+})->name('vendedores');
+
 
 Route::resource('/produtos', '\App\Http\Controllers\ControladorProduto'::class);
 
 Route::resource('/categorias', '\App\Http\Controllers\ControladorCategoria'::class);
+
+Route::resource('/vendedores', '\App\Http\Controllers\ControladorVendedor'::class);
