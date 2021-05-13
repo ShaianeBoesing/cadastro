@@ -15,6 +15,9 @@
             <li class="nav-item  {{$current=='categorias'?'active':''}}">
                 <a class="nav-link" href="/categorias">Categorias <span class="sr-only"></span></a>
             </li>
+            <li class="nav-item  {{$current=='vendedores'?'active':''}}">
+                <a class="nav-link" href="{{url('/vendedores')}}">Vendedores <span class="sr-only"></span></a>
+            </li>
         </ul>
     </div>
 </nav>

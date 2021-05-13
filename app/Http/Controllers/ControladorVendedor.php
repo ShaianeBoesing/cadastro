@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
+use App\Models\Vendedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use function GuzzleHttp\Promise\all;
 
 class ControladorVendedor extends Controller
 {
@@ -11,9 +15,16 @@ class ControladorVendedor extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //
+        $vends = Vendedor::all();
+        return $vends->toJson();
+    }
+
+    public function indexView()
+    {
+        return view('/vendedores');
     }
 
     /**
@@ -34,7 +45,14 @@ class ControladorVendedor extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vends = new Vendedor();
+
+        $vends->nome = $request->input('nome');
+        $vends->cpf = $request->input('cpf');
+        $vends->email = $request->input('email');
+        $vends->categoria_id = $request->input('categoria_id');
+        $vends->save();
+        return $vends->toJson();
     }
 
     /**

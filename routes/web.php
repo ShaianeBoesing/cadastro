@@ -38,4 +38,7 @@ Route::resource('/produtos', '\App\Http\Controllers\ControladorProduto'::class);
 
 Route::resource('/categorias', '\App\Http\Controllers\ControladorCategoria'::class);
 
-Route::resource('/vendedores', '\App\Http\Controllers\ControladorVendedor'::class);
+Route::get('/vendedores', [\App\Http\Controllers\ControladorVendedor::class, 'indexView'])
+    ->name('vendedores.index');
+Route::post('/vendedores', [\App\Http\Controllers\ControladorVendedor   ::class, 'store'])
+    ->name('vendedores.store');
