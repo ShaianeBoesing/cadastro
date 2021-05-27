@@ -36,7 +36,7 @@ Route::get('/vendedores', function (){
 
 Route::resource('/produtos', '\App\Http\Controllers\ControladorProduto'::class);
 
-Route::resource('/categorias', '\App\Http\Controllers\ControladorCategoria'::class);
+ Route::resource('/categorias', '\App\Http\Controllers\ControladorCategoria'::class);
 
 Route::get('/vendedores', [\App\Http\Controllers\ControladorVendedor::class, 'indexView'])
     ->name('vendedores.index');
